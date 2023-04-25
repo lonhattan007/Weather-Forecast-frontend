@@ -1,6 +1,6 @@
 # Weather Forecast Web Application
 
-## Prerequisites
+# Prerequisites
 
 - Node v16; it is recommended to install Node with [nvm](https://www.freecodecamp.org/news/node-version-manager-nvm-install-guide/)
 
@@ -17,7 +17,7 @@
   npm run dev
   ```
 
-## Workflow
+# Workflow
 
 - To work on a new feature, checkout a new branch from the `main` branch on your local machine:
 
@@ -25,7 +25,7 @@
   git checkout -b <branch-name>
   ```
 
-  - The branch name should be in the form of `ft/<functionality>`, for example `ft/login`
+  - Branches' names should be in the form of `<prefix>/<functionality>`, for exambple `ft/login`. See more in the `Convention` section.
 
 - Before committing, always reformat and check linting rules:
   
@@ -130,8 +130,17 @@ Weather-Forecast-frontend/
 
 - Components and their respective files should be named with Pascal case, eg. _AddStaffModal_, _AddStaffModal.jsx_.
 
+- Branches should be named in the form of `<prefix>/<functionality>`, for example `ft/login`. Some conventional prefixes:
+    
+    - ft: Working on a new feature
+    - fix: Fixing errors or refactoring code
+    - pkg: Adding packages
+    - doc: Adding documentations
+
 - To be added.
 
 ### Components
+
+- The preferred way of writing components is functional components.
 
 - It is highly recommended to use pre-installed components from libraries and UI kits rather than build one from scratch. This saves up tons of time.
