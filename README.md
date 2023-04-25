@@ -27,6 +27,14 @@
 
   - The branch name should be in the form of `ft/<functionality>`, for example `ft/login`
 
+- Before committing, always reformat and check linting rules:
+  
+  ```bash
+  npx prettier --write .
+  npx eslint
+
+  ```
+
 - To push changes from that new branch to the repo for the first time:
 
   ```bash
@@ -48,7 +56,8 @@
 - `Node 16 & npm`: Runtime & package manager
 - `Vite`: Module bundler
 - [React](https://reactjs.org/docs/getting-started.html): Core UI library
-- [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/) & [Reactstrap](https://reactstrap.github.io/?path=/story/home-installation--page) : styling and components library
+- [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/) & [Reactstrap](https://reactstrap.github.io/?path=/story/home-installation--page): styling and components library
+- [MDB](https://mdbootstrap.com/docs/react/): UI kit
 - [SASS](https://sass-lang.com/documentation/): CSS preprocessor
 - [Redux](https://redux.js.org/introduction/getting-started): State management
 - [React Router](https://reactrouter.com/en/main/start/tutorial): Routing library
@@ -57,30 +66,46 @@
 ## Project Structure
 
 ```markdown
-uwc-frontent/
+Weather-Forecast-frontend/
 |__ src/
 |   |__ assets/.................... - dynamic assets
+|   |   
 |   |__ components/................ - shared components
 |   |   |__ componentsA/
-|   |   |   |__ ComponentA.jsx
-|   |   |   |__ SubComponentB.jsx
+|   |   |   |__ ComponentA.tsx
+|   |   |   |__ ComponentA.test.ts
 |   |   |   |__ ComponentA.scss
+|   |   |   |__ SubComponentB.tsx
 |   |   |   |__ ...
-|   |   |   |__ index.js........... - exporting modules
+|   |   |   |__ index.ts........... - exporting modules
 |   |   |__ ...
+|   |   
+|   |__ routes/.................... - routes
+|   |   |__ router.ts ............. - router config
+|   |   
+|   |__ scss....................... - styling
+|   |   |__ styles.scss............ - global styling
+|   |   |__ theme.scss............. - themeing variables
+|   |   
+|   |__ stores/.................... - state management store
+|   |   
 |   |__ views/..................... - page-level components
 |   |   |__ ViewA/
-|   |   |   |__ ViewA.jsx
-|   |   |   |__ SubComponentB.jsx
+|   |   |   |__ ViewA.tsx
+|   |   |   |__ ViewA.test.ts
 |   |   |   |__ ViewA.scss
+|   |   |   |__ SubComponentB.tsx
 |   |   |   |__ ...
-|   |   |   |__ index.js........... - exporting modules
+|   |   |   |__ index.ts........... - exporting modules
 |   |   |__ ...
-|   |__ scss/styles.scss........... - global styling
-|   |__ main.jsx................... - main js entry
+|   |   
+|   |__ utils/..................... - utilities/helpers
+|   |   
+|   |__ main.tsx................... - main js entry
+|   |   
 |__ mocks/......................... - mock data
 |__ |__ entityX/
-|__ |   |__ entityXdata.js
+|__ |   |__ entityXdata.ts
 |__ |__ ...
 |__ tests/......................... - testing setup
 |__ public/........................ - public assets
@@ -106,3 +131,7 @@ uwc-frontent/
 - Components and their respective files should be named with Pascal case, eg. _AddStaffModal_, _AddStaffModal.jsx_.
 
 - To be added.
+
+### Components
+
+- It is highly recommended to use pre-installed components from libraries and UI kits rather than build one from scratch. This saves up tons of time.
