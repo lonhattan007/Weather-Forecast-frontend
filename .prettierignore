@@ -1,3 +1,7 @@
+# Ignore artifacts:
+build
+coverage
+
 # Logs
 logs
 *.log
@@ -23,5 +27,4 @@ dist-ssr
 *.sln
 *.sw?
 
-# Environment configs
-.env
+README.md
