@@ -31,7 +31,7 @@
   
   ```bash
   npx prettier --write .
-  npx eslint
+  npm run lint
 
   ```
 
