@@ -124,6 +124,22 @@ Weather-Forecast-frontend/
 
 ### Naming
 
+- Names should be in English
+
+- Use meaningful names: they should describe what they represent, their roles, their functionalities, etc.
+
+- Avoid arbitrary names: a, b, c, x1, x2, ...
+
+- Names should be less than 5 words
+
+- Careful with the use of some words representing a set of multiple objects: *list*, *set*, ...
+	```javascript
+	let userList = [...] // not readable
+	let users = [...] // better
+	```
+
+- Avoid noise words: *the*, *a*, *an*, *data*, *info*, *manager*, *variable*, ...
+
 - Variables and functions should be named in camel case, eg. _selectedStaffs_, _customHook_
 
 - Constants should be named in snake case with all caps, eg. _API_KEY_
@@ -137,10 +153,39 @@ Weather-Forecast-frontend/
     - pkg: Adding packages
     - doc: Adding documentations
 
-- To be added.
+- TBA.
 
 ### Components
 
 - The preferred way of writing components is functional components.
 
 - It is highly recommended to use pre-installed components from libraries and UI kits rather than build one from scratch. This saves up tons of time.
+
+- TBA.
+
+### Other Clean Code Practices
+
+- No hard coding
+
+- Avoid magic numbers, assign them to constatns or variables with commest instead
+
+- No double negative conditions
+
+- Avoid too much nesting
+
+- TBA.
+
+### Tesing
+
+- Unit tests should be made for each components.
+
+- Testing can be done with
+	```bash
+	npm run test
+	```
+	or
+	```bash
+	npm run coverage
+	```
+
+- TBA.
