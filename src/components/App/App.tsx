@@ -1,6 +1,4 @@
-// import { useState } from 'react';
-
-import { useAppSelector, useAppDispatch } from './hooks';
+import { useAppSelector, useAppDispatch } from '@hooks/customReduxHooks';
 import { increment } from './counterSlice';
 
 import reactLogo from '@assets/images/react.svg';
