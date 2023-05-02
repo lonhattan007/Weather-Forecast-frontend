@@ -12,6 +12,7 @@ export default defineConfig({
       '@assets': path.resolve('./src/assets/'),
       '@components': path.resolve('./src/components/'),
       '@views': path.resolve('./src/views/'),
+      '@hooks': path.resolve('./src/hooks/'),
       '@mocks': path.resolve('./mocks/'),
       '@styles': path.resolve('./src/scss'),
       '@stores': path.resolve('./src/stores'),
