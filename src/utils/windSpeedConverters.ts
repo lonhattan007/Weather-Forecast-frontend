@@ -1,6 +1,9 @@
+// Ratio of 1 kmh to knot
 const KMH_TO_KNOT_RATIO = 0.5399;
+// Ratio of 1 km to mile
 const KM_TO_MILE_RATIO = 0.6214;
 
+// Lower bounds for Beaufort scale levels measured in kmh
 enum BeaufortLowerLimits {
   Force0 = 0,
   Force1 = 2,
@@ -66,7 +69,6 @@ function kmhToMph(windSpeedKmh: number): number {
     throw new Error('Invalid input for wind speed: speed cannot be negative!');
   }
 
-  // Return the result as a number, with one decimal digit
   return windSpeedKmh * KM_TO_MILE_RATIO;
 }
 
@@ -79,7 +81,6 @@ function kmhToKnot(windSpeedKmh: number): number {
     throw new Error('Invalid input for wind speed: speed cannot be negative!');
   }
 
-  // Return the result as a number, with one decimal digit
   return windSpeedKmh * KMH_TO_KNOT_RATIO;
 }
 

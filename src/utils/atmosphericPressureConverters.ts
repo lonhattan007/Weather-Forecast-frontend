@@ -1,3 +1,4 @@
+// Ratio of 1 bar to atm
 const BAR_TO_ATM_RATIO = 0.9869;
 // The bar to atm ratio divided by 1000
 const MBAR_TO_ATM_RATIO = BAR_TO_ATM_RATIO / 1000;
