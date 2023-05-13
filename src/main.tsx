@@ -22,11 +22,30 @@ const mockParams = {
   endDateTime: '2020-12-01T21:00:00',
 };
 
+const mockParamsByName = {
+  locationName: 'Thua Thien - Hue',
+  startDateTime: '2020-12-01T09:00:00',
+  endDateTime: '2020-12-01T21:00:00',
+};
+
 axios
   .get(`/weathers`, {
     params: mockParams,
   })
-  .then((res) => console.log(JSON.parse(res.request.response)))
+  .then((res) => {
+    console.log('Get weather by coordinates');
+    console.log(JSON.parse(res.request.response));
+  })
+  .catch((err) => console.error(err));
+
+axios
+  .get(`/weathers/location-name`, {
+    params: mockParamsByName,
+  })
+  .then((res) => {
+    console.log('Get weather by name');
+    console.log(JSON.parse(res.request.response));
+  })
   .catch((err) => console.error(err));
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
