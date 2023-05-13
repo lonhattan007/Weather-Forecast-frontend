@@ -1,9 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import counterSlice from '@components/App/counterSlice';
+import locationsSlice from './locationsSlice';
+import currentCoordsSlice from './currentCoordsSlice';
 
 const store = configureStore({
   reducer: {
     counter: counterSlice,
+    locations: locationsSlice,
+    currentCoords: currentCoordsSlice,
   },
 });
 

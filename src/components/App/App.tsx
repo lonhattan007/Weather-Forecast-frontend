@@ -1,3 +1,4 @@
+// import { useEffect } from 'react';
 import { useAppSelector, useAppDispatch } from '@hooks/customReduxHooks';
 import { increment } from './counterSlice';
 
@@ -6,9 +7,31 @@ import viteLogo from '/vite.svg';
 
 import './App.scss';
 
+// import axios from 'axios';
+
+// const mockParams = {
+//   latitude: 10.712279,
+//   longitude: 106.645285,
+//   startDateTime: '2020-12-01T09:00:00',
+//   endDateTime: '2020-12-01T21:00:00',
+// };
+
 const App = () => {
   const count = useAppSelector((state) => state.counter.value);
   const dispatch = useAppDispatch();
+
+  // useEffect(() => {
+  //   axios
+  //     .get(`/weathers`, {
+  //       params: mockParams,
+  //     })
+  //     .then((res) => console.log(res))
+  //     .catch((err) => console.error(err));
+  // }, []);
+
+  // useEffect(() => {
+  //   console.log(import.meta.env.MODE);
+  // }, []);
 
   return (
     <>

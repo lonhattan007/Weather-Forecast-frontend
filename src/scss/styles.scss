@@ -1,4 +1,6 @@
-@import '~bootstrap/scss/bootstrap';
+// @import '~bootstrap/scss/bootstrap';
+@import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+@import '@fortawesome/fontawesome-free/css/all.min.css';
 
 :root {
   font-family: Roboto, system-ui, Helvetica, Arial, sans-serif;
@@ -32,6 +34,19 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+  max-width: 100% !important;
+
+  height: 100vh;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  text-align: center;
+  display: flex;
 }
 
 h1 {

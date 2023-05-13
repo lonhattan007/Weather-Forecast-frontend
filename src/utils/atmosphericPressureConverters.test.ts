@@ -7,8 +7,8 @@ describe('Test converting millibar to atm', () => {
       const input = -5;
 
       mbarToAtmosphere(input);
-    } catch (err) {
-      expect(err.message).toBe('Invalid input for atmospheric pressure: pressure cannot be negative!');
+    } catch (error: any) {
+      expect(error.message).toBe('Invalid input for atmospheric pressure: pressure cannot be negative!');
     }
   });
 

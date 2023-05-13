@@ -1,0 +1,47 @@
+.container {
+  padding: 0 !important;
+}
+
+.row {
+  margin: 0;
+}
+
+#content-container {
+  min-width: 100% !important;
+  max-width: 100% !important;
+
+  height: 100% !important;
+  max-height: 100% !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+#content-row {
+  width: 100% !important;
+  height: 100vh !important;
+  overflow-y: scroll;
+}
+
+.side-panel {
+  background-color: #300446;
+  padding: 0;
+
+  .info-card {
+    width: 80%;
+  }
+
+  .card-container {
+    margin: 0;
+  }
+}
+
+#search-section {
+  width: 80%;
+  padding: 0;
+}
+
+.detail-board {
+  background-color: inherit;
+  padding: 0;
+}
