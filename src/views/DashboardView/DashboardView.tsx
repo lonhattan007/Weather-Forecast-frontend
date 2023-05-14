@@ -2,7 +2,6 @@ import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit';
 import { MDBCard, MDBCardBody } from 'mdb-react-ui-kit';
 import Greetings from '@components/Greetings/Greetings';
 import LocationSearchBar from '@components/LocationSearchBar/LocationSearchBar';
-
 import { useEffect } from 'react';
 import { useCurrentCoordinates } from '@hooks/useCurrentCoordinates';
 
@@ -24,25 +23,20 @@ const DashboardView = () => {
               <LocationSearchBar id="search-section" />
             </MDBRow>
             <MDBRow className="justify-content-center my-3">
-              <MDBCard className="info-card">
+              <MDBCard className="current-card">
                 <MDBCardBody>Current Location Info</MDBCardBody>
               </MDBCard>
             </MDBRow>
             <MDBRow className="justify-content-start text-align-left my-3">
-              <h6>Other locations</h6>
+              <h6 className="text">Other locations</h6>
             </MDBRow>
             <MDBRow className="justify-content-center my-3">
-              <MDBCard className="info-card">
+              <MDBCard className="other-card">
                 <MDBCardBody>Other Location Info</MDBCardBody>
               </MDBCard>
             </MDBRow>
             <MDBRow className="justify-content-center my-3">
-              <MDBCard className="info-card">
-                <MDBCardBody>Other Location Info</MDBCardBody>
-              </MDBCard>
-            </MDBRow>
-            <MDBRow className="justify-content-center my-3">
-              <MDBCard className="info-card">
+              <MDBCard className="other-card">
                 <MDBCardBody>Other Location Info</MDBCardBody>
               </MDBCard>
             </MDBRow>
