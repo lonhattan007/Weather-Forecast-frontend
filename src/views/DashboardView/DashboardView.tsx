@@ -31,25 +31,20 @@ const DashboardView = () => {
               <LocationSearchBar id="search-section" />
             </MDBRow>
             <MDBRow className="justify-content-center my-3">
-              <MDBCard className="info-card">
+              <MDBCard className="current-card">
                 <MDBCardBody>Current Location Info</MDBCardBody>
               </MDBCard>
             </MDBRow>
             <MDBRow className="justify-content-start text-align-left my-3">
-              <h6>{localStorage.getItem('recentLocations') !== null ? 'Recently Viewed' : 'Other Locations'}</h6>
+              <h6 className="text">{localStorage.getItem('recentLocations') !== null ? 'Recently Viewed' : 'Other Locations'}</h6>
             </MDBRow>
             <MDBRow className="justify-content-center my-3">
-              <MDBCard className="info-card">
+              <MDBCard className="other-card">
                 <MDBCardBody>Other Location Info</MDBCardBody>
               </MDBCard>
             </MDBRow>
             <MDBRow className="justify-content-center my-3">
-              <MDBCard className="info-card">
-                <MDBCardBody>Other Location Info</MDBCardBody>
-              </MDBCard>
-            </MDBRow>
-            <MDBRow className="justify-content-center my-3">
-              <MDBCard className="info-card">
+              <MDBCard className="other-card">
                 <MDBCardBody>Other Location Info</MDBCardBody>
               </MDBCard>
             </MDBRow>
