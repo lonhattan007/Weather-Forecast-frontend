@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { RootState } from '@stores/store';
+import type { Coordinates } from 'src/models/Coordinates.interface';
 
 // Define a type for the slice state
 interface CurrentCoordinates {
-  value: { latitude: number; longitude: number } | null;
+  value: Coordinates | null;
 }
 
 // Define the initial state using that type
