@@ -29,7 +29,7 @@ const Greetings = () => {
 
   return (
     <div className="m-3 text-align-left">
-      <MDBTypography tag="div" className="display-2-lg display-3">
+      <MDBTypography tag="div" className="display-3-lg display-4">
         {currentTime.toLocaleTimeString('en-US', {
           hour: '2-digit',
           minute: '2-digit',

@@ -1,7 +1,7 @@
 import type { Coordinates } from './Coordinates.interface';
 
 interface Location {
-  name: string;
+  province: string;
   coordinates: Coordinates | null;
 }
 
