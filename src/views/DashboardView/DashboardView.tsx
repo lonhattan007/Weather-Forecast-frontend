@@ -1,4 +1,4 @@
-import { MDBContainer, MDBRow, MDBCol, MDBInputGroup, MDBInput, MDBBtn, MDBIcon } from 'mdb-react-ui-kit';
+import { MDBContainer, MDBRow, MDBCol, MDBInputGroup, MDBInput } from 'mdb-react-ui-kit';
 import { MDBCard, MDBCardBody } from 'mdb-react-ui-kit';
 import './DashboardView.scss';
 import { useCurrentCoordinates } from '@hooks/useCurrentCoordinates';

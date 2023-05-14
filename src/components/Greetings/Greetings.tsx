@@ -4,8 +4,9 @@ import { useEffect, useState } from 'react';
 const Greetings = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
 
+  // Side effect function to keep time updated
   useEffect(() => {
-    // Interval range till the next minute
+    // Interval range till the next minute, in milliseconds
     const intervalRange = (60 - currentTime.getSeconds()) * 1000;
 
     const interval = setInterval(() => {
@@ -16,7 +17,8 @@ const Greetings = () => {
     return () => clearInterval(interval);
   });
 
-  const greeting = () => {
+  // Generate greetings based on time in a day
+  const greeting = (): string => {
     const hour = currentTime.getHours();
 
     if (hour < 12) return 'Good Morning!';
