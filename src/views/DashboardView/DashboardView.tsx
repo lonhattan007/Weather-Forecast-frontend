@@ -1,100 +1,89 @@
-import React, { useState, useEffect } from 'react';
-import { MDBContainer, MDBRow, MDBCol, MDBInputGroup, MDBInput, MDBBtn, MDBIcon } from 'mdb-react-ui-kit';
+import { useState, useEffect } from 'react';
+import { MDBContainer, MDBRow, MDBCol, MDBInputGroup} from 'mdb-react-ui-kit';
 import { MDBCard, MDBCardBody } from 'mdb-react-ui-kit';
 import './DashboardView.scss';
 import { useCurrentCoordinates } from '@hooks/useCurrentCoordinates';
 import Greetings from '@components/Greetings/Greetings';
-import * as diacritics from 'diacritics';
+import Select from 'react-select';
 
 const DashboardView = () => {
   const currentCoords = useCurrentCoordinates();
-  const [selectedOption, setSelectedOption] = useState('');
-  const [searchValue, setSearchValue] = useState('');
-  const [filteredOptions, setFilteredOptions] = useState<string[]>([]);
+  const [selectedProvince, setSelectedProvince] = useState('');
 
-  const handleOptionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedOption(e.target.value);
+  const handleProvinceChange = (selectedOption: any) => {
+    setSelectedProvince(selectedOption.value);
+    console.log(selectedOption.value);
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(e.target.value);
-  };
 
   useEffect(() => {
     console.log(currentCoords);
   }, [currentCoords]);
 
-  const provinceList = [
-    "Hà Nội",
-    "Hồ Chí Minh",
-    "Đà Nẵng",
-    "Hải Phòng",
-    "Cần Thơ",
-    "An Giang",
-    "Bà Rịa - Vũng Tàu",
-    "Bắc Giang",
-    "Bắc Kạn",
-    "Bạc Liêu",
-    "Bắc Ninh",
-    "Bến Tre",
-    "Bình Định",
-    "Bình Dương",
-    "Bình Phước",
-    "Bình Thuận",
-    "Cà Mau",
-    "Cao Bằng",
-    "Đắk Lắk",
-    "Đắk Nông",
-    "Điện Biên",
-    "Đồng Nai",
-    "Đồng Tháp",
-    "Gia Lai",
-    "Hà Giang",
-    "Hà Nam",
-    "Hà Tĩnh",
-    "Hải Dương",
-    "Hậu Giang",
-    "Hòa Bình",
-    "Hưng Yên",
-    "Khánh Hòa",
-    "Kiên Giang",
-    "Kon Tum",
-    "Lai Châu",
-    "Lâm Đồng",
-    "Lạng Sơn",
-    "Lào Cai",
-    "Long An",
-    "Nam Định",
-    "Nghệ An",
-    "Ninh Bình",
-    "Ninh Thuận",
-    "Phú Thọ",
-    "Quảng Bình",
-    "Quảng Nam",
-    "Quảng Ngãi",
-    "Quảng Ninh",
-    "Quảng Trị",
-    "Sóc Trăng",
-    "Sơn La",
-    "Tây Ninh",
-    "Thái Bình",
-    "Thái Nguyên",
-    "Thanh Hóa",
-    "Thừa Thiên Huế",
-    "Tiền Giang",
-    "Trà Vinh",
-    "Tuyên Quang",
-    "Vĩnh Long",
-    "Vĩnh Phúc",
-    "Yên Bái"
-  ];
-
-  useEffect(() => {
-    const filtered = provinceList.filter((option) =>
-      (diacritics.remove(option).toLowerCase()).startsWith((diacritics.remove(searchValue).toLowerCase()))
-    );
-    setFilteredOptions(filtered);
-  }, [searchValue]);
+  const provinceOptions = [
+    { value: 'Ha Noi', label: 'Hà Nội' },
+    { value: 'Ho Chi Minh', label: 'Hồ Chí Minh' },
+    { value: 'Da Nang', label: 'Đà Nẵng' },
+    { value: 'Hai Phong', label: 'Hải Phòng' },
+    { value: 'Can Tho', label: 'Cần Thơ' },
+    { value: 'An Giang', label: 'An Giang' },
+    { value: 'Ba Ria - Vung Tau', label: 'Bà Rịa - Vũng Tàu' },
+    { value: 'Bac Giang', label: 'Bắc Giang' },
+    { value: 'Bac Kan', label: 'Bắc Kạn' },
+    { value: 'Bac Lieu', label: 'Bạc Liêu' },
+    { value: 'Bac Ninh', label: 'Bắc Ninh' },
+    { value: 'Ben Tre', label: 'Bến Tre' },
+    { value: 'Binh Dinh', label: 'Bình Định' },
+    { value: 'Binh Duong', label: 'Bình Dương' },
+    { value: 'Binh Phuoc', label: 'Bình Phước' },
+    { value: 'Binh Thuan', label: 'Bình Thuận' },
+    { value: 'Ca Mau', label: 'Cà Mau' },
+    { value: 'Cao Bang', label: 'Cao Bằng' },
+    { value: 'Dak Lak', label: 'Đắk Lắk' },
+    { value: 'Dak Nong', label: 'Đắk Nông' },
+    { value: 'Dien Bien', label: 'Điện Biên' },
+    { value: 'Dong Nai', label: 'Đồng Nai' },
+    { value: 'Dong Thap', label: 'Đồng Tháp' },
+    { value: 'Gia Lai', label: 'Gia Lai' },
+    { value: 'Ha Giang', label: 'Hà Giang' },
+    { value: 'Ha Nam', label: 'Hà Nam' },
+    { value: 'Ha Tinh', label: 'Hà Tĩnh' },
+    { value: 'Hai Duong', label: 'Hải Dương' },
+    { value: 'Hau Giang', label: 'Hậu Giang' },
+    { value: 'Hoa Binh', label: 'Hòa Bình' },
+    { value: 'Hung Yen', label: 'Hưng Yên' },
+    { value: 'Khanh Hoa', label: 'Khánh Hòa' },
+    { value: 'Kien Giang', label: 'Kiên Giang' },
+    { value: 'Kon Tum', label: 'Kon Tum' },
+    { value: 'Lai Chau', label: 'Lai Châu' },
+    { value: 'Lam Dong', label: 'Lâm Đồng' },
+    { value: 'Lang Son', label: 'Lạng Sơn' },
+    { value: 'Lao Cai', label: 'Lào Cai' },
+    { value: 'Long An', label: 'Long An' },
+    { value: 'Nam Dinh', label: 'Nam Định' },
+    { value: 'Nghe An', label: 'Nghệ An' },
+    { value: 'Ninh Binh', label: 'Ninh Bình' },
+    { value: 'Ninh Thuan', label: 'Ninh Thuận' },
+    { value: 'Phu Tho', label: 'Phú Thọ' },
+    { value: 'Quang Binh', label: 'Quảng Bình' },
+    { value: 'Quang Nam', label: 'Quảng Nam' },
+    { value: 'Quang Ngai', label: 'Quảng Ngãi' },
+    { value: 'Quang Ninh', label: 'Quảng Ninh' },
+    { value: 'Quang Tri', label: 'Quảng Trị' },
+    { value: 'Soc Trang', label: 'Sóc Trăng' },
+    { value: 'Son La', label: 'Sơn La' },
+    { value: 'Tay Ninh', label: 'Tây Ninh' },
+    { value: 'Thai Binh', label: 'Thái Bình' },
+    { value: 'Thai Nguyen', label: 'Thái Nguyên' },
+    { value: 'Thanh Hoa', label: 'Thanh Hóa' },
+    { value: 'Thua Thien Hue', label: 'Thừa Thiên Huế' },
+    { value: 'Tien Giang', label: 'Tiền Giang' },
+    { value: 'Tra Vinh', label: 'Trà Vinh' },
+    { value: 'Tuyen Quang', label: 'Tuyên Quang' },
+    { value: 'Vinh Long', label: 'Vĩnh Long' },
+    { value: 'Vinh Phuc', label: 'Vĩnh Phúc' },
+    { value: 'Yen Bai', label: 'Yên Bái' }
+    ];
 
   return (
     <MDBContainer id="content-container">
@@ -102,18 +91,14 @@ const DashboardView = () => {
         <MDBCol className="side-panel d-flex justify-content-center align-items-start" lg="3" md="4">
           <MDBContainer>
             <MDBRow className="justify-content-center my-3">
-              <MDBInputGroup id="search-section">
-                <input
-                  type="text"
-                  value={searchValue}
-                  onChange={handleInputChange}
-                  list="options-list"
+              <MDBInputGroup className="justify-content-center my-3">
+                <Select id="search-section"
+                  options={provinceOptions}
+                  value={provinceOptions.find(option => option.value === selectedProvince)}
+                  onChange={handleProvinceChange}
+                  placeholder="Select Province"
                 />
-                <datalist id="options-list">
-                  {filteredOptions.map((option) => (
-                    <option key={diacritics.remove(option)} value={option} />
-                  ))}
-                </datalist>
+
                 {/*<MDBInput label="Search" />
                   <MDBBtn rippleColor="dark">
                   <MDBIcon icon="search" />
