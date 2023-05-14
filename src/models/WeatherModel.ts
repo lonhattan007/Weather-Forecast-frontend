@@ -4,7 +4,6 @@ interface Weather {
   locationId: string;
   // TODO: Location interface / enum
   location: string;
-  // truth_location
   // truthLocation: string;
   // TODO: weatherStatus interface / enum
   weatherStatus: string;

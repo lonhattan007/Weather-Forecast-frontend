@@ -8,6 +8,7 @@ import { useCurrentCoordinates } from '@hooks/useCurrentCoordinates';
 
 import './DashboardView.scss';
 import { useAppSelector } from '@hooks/customReduxHooks';
+import DashboardViewTabs from './DashboardViewTabs';
 
 const DashboardView = () => {
   const currentCoords = useCurrentCoordinates();
@@ -36,7 +37,9 @@ const DashboardView = () => {
               </MDBCard>
             </MDBRow>
             <MDBRow className="justify-content-start text-align-left my-3">
-              <h6 className="text">{localStorage.getItem('recentLocations') !== null ? 'Recently Viewed' : 'Other Locations'}</h6>
+              <h6 className="text">
+                {localStorage.getItem('recentLocations') !== null ? 'Recently Viewed' : 'Other Locations'}
+              </h6>
             </MDBRow>
             <MDBRow className="justify-content-center my-3">
               <MDBCard className="other-card">
@@ -52,6 +55,7 @@ const DashboardView = () => {
         </MDBCol>
         <MDBCol className="detail-board" lg="9" md="8">
           <Greetings />
+          <DashboardViewTabs />
         </MDBCol>
       </MDBRow>
     </MDBContainer>
