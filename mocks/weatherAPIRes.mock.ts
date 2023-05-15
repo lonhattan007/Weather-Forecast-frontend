@@ -1,4 +1,4 @@
-[
+export const data = [
   {
     "_id": "6461f46982fdfbf02cab9aff",
     "dateTime": "2020-12-01T09:00:00",

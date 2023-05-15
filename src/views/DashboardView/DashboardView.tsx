@@ -26,7 +26,7 @@ const DashboardView = () => {
   return (
     <MDBContainer id="content-container">
       <MDBRow id="content-row" className="flex-row-reverse">
-        <MDBCol className="side-panel d-flex justify-content-center align-items-start" lg="3" md="4">
+        <MDBCol className="side-panel p-0 d-flex justify-content-center align-items-start" lg="3" md="4">
           <MDBContainer>
             <MDBRow className="justify-content-center my-3">
               <LocationSearchBar id="search-section" />
@@ -53,9 +53,11 @@ const DashboardView = () => {
             </MDBRow>
           </MDBContainer>
         </MDBCol>
-        <MDBCol className="detail-board" lg="9" md="8">
+        <MDBCol className="detail-board p-0" lg="9" md="8">
           <Greetings />
-          <DashboardViewTabs />
+          <MDBRow className='bg-white m-3 p-3 rounded'>
+            <DashboardViewTabs />
+          </MDBRow>
         </MDBCol>
       </MDBRow>
     </MDBContainer>

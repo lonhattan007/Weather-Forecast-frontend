@@ -1,14 +1,17 @@
 import { useState } from 'react';
 import { MDBTabs, MDBTabsItem, MDBTabsLink, MDBTabsContent, MDBTabsPane } from 'mdb-react-ui-kit';
+import HourlyForecastChart from '@components/HourlyForecastChart/HourlyForecastChart';
 
 const tabs = [
   {
     name: 'Forecast',
     ref: 'forecast',
+    element: <HourlyForecastChart />,
   },
   {
     name: "Today's details",
     ref: 'today-details',
+    element: "Today's details",
   },
 ];
 
@@ -25,9 +28,9 @@ const DashboardViewTabs = () => {
 
   return (
     <>
-      <MDBTabs fill className="mb-3">
+      <MDBTabs pills className="mb-3 justify-content-center">
         {tabs.map((tab) => (
-          <MDBTabsItem key={tab.ref + '-tab-item'}>
+          <MDBTabsItem className="w-25" key={tab.ref + '-tab-item'}>
             <MDBTabsLink onClick={() => handleFillClick(tab.ref)} active={fillActive === tab.ref}>
               {tab.name}
             </MDBTabsLink>
@@ -35,10 +38,12 @@ const DashboardViewTabs = () => {
         ))}
       </MDBTabs>
 
+      {/* <hr className="hr" /> */}
+
       <MDBTabsContent>
         {tabs.map((tab) => (
           <MDBTabsPane show={fillActive === tab.ref} key={tab.ref + '-tab-pane'}>
-            {tab.name}
+            {tab.element}
           </MDBTabsPane>
         ))}
       </MDBTabsContent>
