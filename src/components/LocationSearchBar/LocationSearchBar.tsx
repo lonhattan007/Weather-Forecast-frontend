@@ -16,10 +16,11 @@ const LocationSearchBar = (props: any) => {
   return (
     <Select
       id={props.id}
+      className='rounded'
       options={VietNamProvinces}
       value={VietNamProvinces.find((option) => option.value === selectedLocation)}
       onChange={handleLocationChange}
-      placeholder="Search a location"
+      placeholder='Search a location'
     />
   );
 };

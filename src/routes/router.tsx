@@ -5,7 +5,7 @@ import ErrorView from '@views/ErrorView';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Navigate to="/dashboard" />,
+    element: <Navigate to='/dashboard' />,
     errorElement: <ErrorView />,
   },
   {

@@ -1,7 +1,7 @@
 import { MDBTypography } from 'mdb-react-ui-kit';
 import { useEffect, useState } from 'react';
 
-const Greetings = () => {
+const Greetings = (props: any) => {
   const [currentTime, setCurrentTime] = useState(new Date());
 
   // Side effect function to keep time updated
@@ -28,14 +28,14 @@ const Greetings = () => {
   };
 
   return (
-    <div className="d-flex mt-2 m-3 flex-column align-items-start">
-      <MDBTypography tag="div" className="display-3-lg display-4 text-primary fw-bold">
+    <div className={'mt-2 m-3 flex-column ' + props.className}>
+      <MDBTypography tag='div' className='display-3-lg display-4 text-primary fw-bold'>
         {currentTime.toLocaleTimeString('en-US', {
           hour: '2-digit',
           minute: '2-digit',
         })}
       </MDBTypography>
-      <p className="m-1 text-dark">
+      <p className='m-1 text-dark'>
         {currentTime.toLocaleDateString('en-US', {
           weekday: 'long',
           day: 'numeric',
@@ -43,7 +43,7 @@ const Greetings = () => {
           year: 'numeric',
         })}
       </p>
-      <h4 className="text-primary">{greeting()}</h4>
+      <h4 className='text-primary'>{greeting()}</h4>
     </div>
   );
 };

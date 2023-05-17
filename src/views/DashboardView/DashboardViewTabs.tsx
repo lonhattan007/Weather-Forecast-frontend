@@ -28,9 +28,9 @@ const DashboardViewTabs = () => {
 
   return (
     <>
-      <MDBTabs pills className="mb-3 justify-content-center">
+      <MDBTabs pills className='mb-3 justify-content-center'>
         {tabs.map((tab) => (
-          <MDBTabsItem className="w-25" key={tab.ref + '-tab-item'}>
+          <MDBTabsItem className='w-25' key={tab.ref + '-tab-item'}>
             <MDBTabsLink onClick={() => handleFillClick(tab.ref)} active={fillActive === tab.ref}>
               {tab.name}
             </MDBTabsLink>

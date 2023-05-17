@@ -40,13 +40,6 @@ const data = {
       backgroundColor: 'rgba(255, 99, 132, 0.5)',
       tension: 0.3,
     },
-    {
-      label: 'Feels Like Temperature',
-      data: dataSource.map((item) => item.feelsLikeC),
-      borderColor: 'rgb(53, 162, 235)',
-      backgroundColor: 'rgba(53, 162, 235, 0.5)',
-      tension: 0.3,
-    },
   ],
 };
 
