@@ -22,6 +22,7 @@ function useCurrentCoordinates() {
         value: { latitude, longitude },
       };
 
+      console.log('Geolocation detected');
       localStorage.setItem('currentCoordinates', `${latitude},${longitude}`);
       dispatch(setCurrentCoords(payload));
     };

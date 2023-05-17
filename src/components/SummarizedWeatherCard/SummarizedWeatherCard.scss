@@ -1,0 +1,18 @@
+table {
+  background-color: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+
+  tr,
+  th,
+  td {
+    padding: 0 !important;
+  }
+}
+
+.other-card {
+  width: 80%;
+  background-image: linear-gradient(#ffc489, #ff9b37);
+  margin-bottom: 10px;
+  color: #ffffff;
+}
