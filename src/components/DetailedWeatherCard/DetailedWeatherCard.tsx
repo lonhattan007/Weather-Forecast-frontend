@@ -24,7 +24,7 @@ const DetailedWeatherCard = () => {
   return (
     <MDBCard className='current-card'>
       <Greetings className='d-flex d-md-none' />
-      <MDBCardTitle className='mt-3'>
+      <MDBCardTitle className='mt-3 fs-4'>
         <MDBIcon icon='map-marker-alt' size='xs' />
         {/* TODO: This is just a patch, removed when DB is more concise */}
         <span className=''>{' ' + fixLocationName(location)}</span>

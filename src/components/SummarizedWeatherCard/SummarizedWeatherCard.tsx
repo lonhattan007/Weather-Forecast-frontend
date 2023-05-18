@@ -24,7 +24,7 @@ const SummarizedWeatherCard = (props: any) => {
 
   return (
     <MDBCard className='other-card' onClick={handleClick}>
-      <MDBCardTitle className='mt-2 d-flex flex-row-reverse'>
+      <MDBCardTitle className='mt-2 d-flex flex-row-reverse fs-5'>
         <span>
           <MDBIcon icon='map-marker-alt' size='xs' />
           {/* TODO: This is just a patch, removed when DB is more concise */}

@@ -53,4 +53,15 @@
   background-color: white;
   color: black;
   margin: 2em 0;
+
+  .card-title {
+    text-align: start;
+    margin: 5px 20px;
+    font-size: 20px;
+  }
+
+  .card-body {
+    padding: 5px;
+    margin-bottom: 10px;
+  }
 }
