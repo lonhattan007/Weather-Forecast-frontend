@@ -6,32 +6,32 @@ const WindCard = () => {
 
   return (
     <MDBCard className='info-card'>
-      <MDBCardTitle>
+      <MDBCardTitle className='text-primary'>
         <span>
-          <MDBIcon className='px-1' icon='wind' color='success' /> Wind
+          <MDBIcon className='px-1' icon='wind' /> Wind
         </span>
       </MDBCardTitle>
       <MDBCardBody>
-        <div className='rounded mx-5 p-3 bg-primary'>
+        <div id='wind-card-content' className='table-container rounded mx-5 p-3'>
           <MDBTable>
             <MDBTableBody>
               <tr>
                 <th scope='row' className='text-start'>
                   Wind speed{' '}
                 </th>
-                <th className='text-end'>{currentWeather.windSpeedKmph} Km/h </th>
+                <th className='text-end text-primary fw-bold'>{currentWeather.windSpeedKmph} Km/h </th>
               </tr>
               <tr>
                 <th scope='row' className='text-start'>
                   Wind gust{' '}
                 </th>
-                <th className='text-end'>{currentWeather.windGustKmph} Km/h</th>
+                <th className='text-end text-primary fw-bold'>{currentWeather.windGustKmph} Km/h</th>
               </tr>
               <tr className='h-25'>
                 <th scope='row' className='text-start'>
                   Wind direction
                 </th>
-                <th className='text-end'>
+                <th className='text-end text-primary fw-bold'>
                   {currentWeather.windDirDegree ? (
                     <>
                       {/* The icon is slanted by 45 degrees by default */}

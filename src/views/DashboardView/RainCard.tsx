@@ -6,32 +6,32 @@ const RainCard = () => {
 
   return (
     <MDBCard className='info-card'>
-      <MDBCardTitle>
+      <MDBCardTitle className='text-primary'>
         <span>
-          <MDBIcon className='px-1' icon='cloud-showers-heavy' color='primary' /> Rainfall and Mist
+          <MDBIcon className='px-1' icon='cloud-showers-heavy' /> Rainfall and Mist
         </span>
       </MDBCardTitle>
       <MDBCardBody>
-        <div className='rounded mx-5 p-3 bg-primary'>
+        <div id='rain-card-content' className='table-container rounded mx-5 p-3'>
           <MDBTable>
             <MDBTableBody>
               <tr>
                 <th scope='row' className='text-start'>
                   Precipitation
                 </th>
-                <th className='text-end'>{currentWeather.precipitationMm} mm </th>
+                <th className='text-end text-primary fw-bold'>{currentWeather.precipitationMm} mm </th>
               </tr>
               <tr>
                 <th scope='row' className='text-start'>
                   Snow fall
                 </th>
-                <th className='text-end'>{currentWeather.totalSnowCm} cm</th>
+                <th className='text-end text-primary fw-bold'>{currentWeather.totalSnowCm} cm</th>
               </tr>
               <tr>
                 <th scope='row' className='text-start'>
                   Dew point
                 </th>
-                <th className='text-end'>{currentWeather.dewPointC} &deg;C</th>
+                <th className='text-end text-primary fw-bold'>{currentWeather.dewPointC} &deg;C</th>
               </tr>
             </MDBTableBody>
           </MDBTable>

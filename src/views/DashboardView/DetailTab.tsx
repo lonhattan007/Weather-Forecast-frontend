@@ -9,12 +9,12 @@ const DetailTab = () => {
   return (
     <MDBContainer>
       <MDBRow>
-        <MDBCol>
+        <MDBCol className='justify-content-between'>
           <WindCard />
           <RainCard />
           <VisibilityCard />
         </MDBCol>
-        <MDBCol>
+        <MDBCol className='justify-content-between'>
           <HeatCard />
           <DaylightCard />
         </MDBCol>

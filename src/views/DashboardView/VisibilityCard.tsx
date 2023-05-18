@@ -6,27 +6,27 @@ const VisibilityCard = () => {
 
   return (
     <MDBCard className='info-card'>
-      <MDBCardTitle>
+      <MDBCardTitle className='text-primary'>
         <span>
-          <MDBIcon className='px-1' icon='binoculars' color='secondary' style={{ rotate: '180deg' }} />
+          <MDBIcon className='px-1' icon='binoculars' style={{ rotate: '-90deg' }} />
           Visibility
         </span>
       </MDBCardTitle>
       <MDBCardBody>
-        <div className='rounded mx-5 p-3 bg-primary'>
+        <div id='visibility-card-content' className='table-container rounded mx-5 p-3'>
           <MDBTable>
             <MDBTableBody>
               <tr>
                 <th scope='row' className='text-start'>
                   Visibility
                 </th>
-                <th className='text-end'>{currentWeather.visibility} Km </th>
+                <th className='text-end text-primary fw-bold'>{currentWeather.visibility} Km </th>
               </tr>
               <tr>
                 <th scope='row' className='text-start'>
                   Cloud cover
                 </th>
-                <th className='text-end'>{currentWeather.cloudCover} %</th>
+                <th className='text-end text-primary fw-bold'>{currentWeather.cloudCover} %</th>
               </tr>
             </MDBTableBody>
           </MDBTable>

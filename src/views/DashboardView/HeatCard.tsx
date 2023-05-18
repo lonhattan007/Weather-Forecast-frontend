@@ -6,39 +6,39 @@ const HeatCard = () => {
 
   return (
     <MDBCard className='info-card'>
-      <MDBCardTitle>
+      <MDBCardTitle className='text-primary'>
         <span>
           <MDBIcon className='px-1' icon='thermometer-half' />
           Heat
         </span>
       </MDBCardTitle>
       <MDBCardBody>
-        <div className='rounded mx-5 p-3 bg-primary'>
+        <div id='heat-card-content' className='table-container rounded mx-5 p-3'>
           <MDBTable>
             <MDBTableBody>
               <tr>
                 <th scope='row' className='text-start'>
                   Maximum temperature
                 </th>
-                <th className='text-end'>{currentWeather.maxTempC} &deg;C </th>
+                <th className='text-end text-primary fw-bold'>{currentWeather.maxTempC} &deg;C </th>
               </tr>
               <tr>
                 <th scope='row' className='text-start'>
                   Minimum temperature
                 </th>
-                <th className='text-end'>{currentWeather.minTempC} &deg;C</th>
+                <th className='text-end text-primary fw-bold'>{currentWeather.minTempC} &deg;C</th>
               </tr>
               <tr>
                 <th scope='row' className='text-start'>
                   Heat index
                 </th>
-                <th className='text-end'>{currentWeather.heatIndexC} &deg;C</th>
+                <th className='text-end text-primary fw-bold'>{currentWeather.heatIndexC} &deg;C</th>
               </tr>
               <tr>
                 <th scope='row' className='text-start'>
                   Wind chill
                 </th>
-                <th className='text-end'>{currentWeather.windChillC} &deg;C</th>
+                <th className='text-end text-primary fw-bold'>{currentWeather.windChillC} &deg;C</th>
               </tr>
             </MDBTableBody>
           </MDBTable>

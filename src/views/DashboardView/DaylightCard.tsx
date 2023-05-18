@@ -6,57 +6,57 @@ const DaylightCard = () => {
 
   return (
     <MDBCard className='info-card'>
-      <MDBCardTitle>
+      <MDBCardTitle className='text-primary'>
         <span>
           <MDBIcon className='px-1' icon='sun' />
           Daylight
         </span>
       </MDBCardTitle>
       <MDBCardBody>
-        <div className='rounded mx-5 p-3 bg-primary'>
+        <div id='daylight-card-content' className='table-container rounded mx-5 p-3'>
           <MDBTable>
             <MDBTableBody>
               <tr>
                 <th scope='row' className='text-start'>
                   UV index
                 </th>
-                <th className='text-end'>{currentWeather.uvIndex} Km</th>
+                <th className='text-end text-primary fw-bold'>{currentWeather.uvIndex} Km</th>
               </tr>
               <tr>
                 <th scope='row' className='text-start'>
                   Sun hour
                 </th>
-                <th className='text-end'>{currentWeather.sunHour} hr</th>
+                <th className='text-end text-primary fw-bold'>{currentWeather.sunHour} hr</th>
               </tr>
               <tr>
                 <th scope='row' className='text-start'>
                   Sunset
                 </th>
-                <th className='text-end'>{currentWeather.sunset}</th>
+                <th className='text-end text-primary fw-bold'>{currentWeather.sunset}</th>
               </tr>
               <tr>
                 <th scope='row' className='text-start'>
                   Sunset
                 </th>
-                <th className='text-end'>{currentWeather.sunset}</th>
+                <th className='text-end text-primary fw-bold'>{currentWeather.sunset}</th>
               </tr>
               <tr>
                 <th scope='row' className='text-start'>
                   Moon illumination
                 </th>
-                <th className='text-end'>{currentWeather.sunHour} %</th>
+                <th className='text-end text-primary fw-bold'>{currentWeather.sunHour} %</th>
               </tr>
               <tr>
                 <th scope='row' className='text-start'>
                   Moonrise
                 </th>
-                <th className='text-end'>{currentWeather.moonrise}</th>
+                <th className='text-end text-primary fw-bold'>{currentWeather.moonrise}</th>
               </tr>
               <tr>
                 <th scope='row' className='text-start'>
                   Moonset
                 </th>
-                <th className='text-end'>{currentWeather.moonset}</th>
+                <th className='text-end text-primary fw-bold'>{currentWeather.moonset}</th>
               </tr>
             </MDBTableBody>
           </MDBTable>
