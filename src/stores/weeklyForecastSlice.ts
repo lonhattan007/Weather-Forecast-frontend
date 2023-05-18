@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { RootState } from './store';
-import type { WeatherForecast } from '@models/WeatherForecast';
+import type { WeatherForecast } from '@models/WeatherForecast.interface';
 
 interface WeeklyForecastState {
   value: WeatherForecast[];

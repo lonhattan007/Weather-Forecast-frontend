@@ -9,7 +9,7 @@ import { updateLocation } from '@stores/currentLocationSlice';
 import { fixLocationName } from '@utils/fixLocationName';
 
 import './SummarizedWeatherCard.scss';
-import { Weather } from '@models/Weather';
+import { Weather } from '@models/Weather.interface';
 
 const SummarizedWeatherCard = (props: any) => {
   const dispatch = useAppDispatch();

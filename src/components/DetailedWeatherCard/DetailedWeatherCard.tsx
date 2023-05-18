@@ -9,7 +9,7 @@ import './DetailedWeatherCard.scss';
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '@hooks/customReduxHooks';
 import { updateCurrentWeather } from '@stores/currentWeatherSlice';
-import { Weather } from '@models/Weather';
+import { Weather } from '@models/Weather.interface';
 
 const DetailedWeatherCard = () => {
   const dispatch = useAppDispatch();

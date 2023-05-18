@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { RootState } from '@stores/store';
-import type { Weather } from '@models/Weather';
+import type { Weather } from '@models/Weather.interface';
 
 // Define a type for the slice state
 interface CurrentWeatherState {
