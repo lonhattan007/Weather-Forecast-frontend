@@ -1,31 +1,30 @@
 import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit';
 import Greetings from '@components/Greetings';
 import LocationSearchBar from '@components/LocationSearchBar';
-import DashboardViewTabs from './DashboardViewTabs';
 import DetailedWeatherCard from '@components/DetailedWeatherCard/DetailedWeatherCard';
 import SummarizedWeatherCard from '@components/SummarizedWeatherCard/SummarizedWeatherCard';
+import { DashboardViewTabs } from './DashboardViewTabs';
 
 import { useEffect } from 'react';
 import { useCurrentCoordinates } from '@hooks/useCurrentCoordinates';
-import { useAppSelector } from '@hooks/customReduxHooks';
+import { useAppDispatch, useAppSelector } from '@hooks/customReduxHooks';
 
 import './DashboardView.scss';
-import { useWeather } from '@hooks/useWeather';
+import { ForecastTypes, useForecast } from '@hooks/useForecast';
+import { updateHourlyForecast } from '@stores/hourlyForecastSlice';
+import { updateWeeklyForecast } from '@stores/weeklyForecastSlice';
 
 const DashboardView = () => {
   const currentCoords = useCurrentCoordinates();
   const recentLocations = useAppSelector((state) => state.recentLocations.value);
-  const currentLocation = useAppSelector((state) => state.currentLocation.value);
-  const currentWeather = useWeather(currentLocation);
 
   useEffect(() => {
     console.log(currentCoords);
   }, [currentCoords]);
 
-  useEffect(() => {
-    localStorage.setItem('recentLocations', recentLocations.toString());
-    console.log('Recent locations:', recentLocations);
-  }, [recentLocations]);
+  useForecast(ForecastTypes.hourly);
+
+  useForecast(ForecastTypes.weekly);
 
   return (
     <MDBContainer id='content-container'>
@@ -52,7 +51,7 @@ const DashboardView = () => {
         </MDBCol>
         <MDBCol className='detail-board p-0' lg='9' md='8'>
           <Greetings className='d-none d-md-flex align-items-start' />
-          <MDBRow className='bg-white m-3 p-3 rounded'>
+          <MDBRow className='m-3 p-3'>
             <DashboardViewTabs />
           </MDBRow>
         </MDBCol>

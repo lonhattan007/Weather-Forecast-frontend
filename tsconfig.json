@@ -12,6 +12,7 @@
       "@views/*": ["./src/views/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@mocks/*": ["./mocks/*"],
+      "@models/*": ["./src/models/*"],
       "@styles/*": ["./src/scss/*"],
       "@stores/*": ["./src/stores/*"],
       "@routes/*": ["./src/routes/*"],

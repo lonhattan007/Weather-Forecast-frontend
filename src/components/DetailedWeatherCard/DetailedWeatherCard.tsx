@@ -7,14 +7,17 @@ import { fixLocationName } from '@utils/fixLocationName';
 
 import './DetailedWeatherCard.scss';
 import { useEffect } from 'react';
-import { useAppSelector } from '@hooks/customReduxHooks';
+import { useAppDispatch, useAppSelector } from '@hooks/customReduxHooks';
+import { updateCurrentWeather } from '@stores/currentWeatherSlice';
 
 const DetailedWeatherCard = () => {
+  const dispatch = useAppDispatch();
   const location = useAppSelector((state) => state.currentLocation.value);
   const weather = useWeather(location);
 
   useEffect(() => {
-    console.log(weather);
+    // Update the current weather in the store whenever the weather changes
+    dispatch(updateCurrentWeather(weather));
   }, [weather]);
 
   return (
@@ -26,11 +29,13 @@ const DetailedWeatherCard = () => {
         <span className=''>{' ' + fixLocationName(location)}</span>
       </MDBCardTitle>
       <MDBCardBody className='d-flex flex-column'>
-        <MDBTypography tag='div' className='fw-bold display-4'>
+        <MDBTypography tag='div' className='fw-bold display-md-3 display-4'>
           {weather.tempC}&deg;C
         </MDBTypography>
         Real Feel {weather.feelsLikeC}&deg;C <br />
-        {weather.weatherStatus} <br />
+        <MDBTypography tag='div' className='fw-bold'>
+          {weather.weatherStatus}
+        </MDBTypography>
         <MDBTable borderless>
           <MDBTableBody>
             <tr>

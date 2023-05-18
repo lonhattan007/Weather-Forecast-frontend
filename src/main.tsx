@@ -14,6 +14,8 @@ import router from '@routes/router';
 
 import '@utils/axios.config';
 
+import moment from 'moment';
+
 // const mockParams = {
 //   latitude: 16.4498,
 //   longitude: 107.56235,
@@ -31,10 +33,18 @@ import '@utils/axios.config';
 //   })
 //   .catch((err) => console.error(err));
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
+console.log(`Moment: ${moment().format()}`);
+
+const App = () => {
+  return (
     <Provider store={store}>
       <RouterProvider router={router} />
     </Provider>
+  );
+};
+
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+  <React.StrictMode>
+    <App />
   </React.StrictMode>,
 );

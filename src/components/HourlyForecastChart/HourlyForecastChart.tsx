@@ -10,12 +10,11 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 
-import { data as dataSource } from '@mocks/weatherAPIRes.mock';
-import { useEffect } from 'react';
+import { useAppSelector } from '@hooks/customReduxHooks';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-const options = {
+const CHART_OPTIONS = {
   responsive: true,
   plugins: {
     legend: {
@@ -28,29 +27,27 @@ const options = {
   },
 };
 
-const labels = dataSource.map((item) => item.dateTime.substring(11, 16));
-
-const data = {
-  labels,
-  datasets: [
-    {
-      label: 'Temperature',
-      data: dataSource.map((item) => item.tempC),
-      borderColor: 'rgb(255, 99, 132)',
-      backgroundColor: 'rgba(255, 99, 132, 0.5)',
-      tension: 0.3,
-    },
-  ],
-};
-
 const HourlyForecastChart = () => {
-  useEffect(() => {
-    console.log(dataSource.map((item) => item.dateTime.substring(11, 16)));
-  }, []);
+  const hourlyForecast = useAppSelector((state) => state.hourlyForecast.value);
+
+  const labels = hourlyForecast.map((item) => item.dateTime?.toString().substring(11, 16));
+
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: 'Temperature',
+        data: hourlyForecast.map((item) => item.tempC),
+        borderColor: 'rgb(255, 99, 132)',
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        tension: 0.3,
+      },
+    ],
+  };
 
   return (
     <>
-      <Line options={options} data={data} />
+      <Line options={CHART_OPTIONS} data={data} />
     </>
   );
 };

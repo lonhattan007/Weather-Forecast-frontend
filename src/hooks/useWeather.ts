@@ -1,11 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function useWeather(
-  location: string,
-  // startDateTime: string,
-  // endDateTime: string
-) {
+function useWeather(location: string) {
   // TODO: Automatically get current date time
   const startDateTime = '2023-05-18T00:00:00';
   const endDateTime = '2023-05-18T01:00:00';
@@ -32,7 +28,6 @@ function useWeather(
       .then((res) => {
         const weatherReports = JSON.parse(res.request.response);
         setWeather({ ...weatherReports[0] });
-        // console.log(summarizedWeather)
       })
       .catch((err) => {
         console.error(err.message);

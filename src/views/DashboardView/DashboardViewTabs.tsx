@@ -1,22 +1,38 @@
 import { useState } from 'react';
-import { MDBTabs, MDBTabsItem, MDBTabsLink, MDBTabsContent, MDBTabsPane } from 'mdb-react-ui-kit';
-import HourlyForecastChart from '@components/HourlyForecastChart/HourlyForecastChart';
+import {
+  MDBTabs,
+  MDBTabsItem,
+  MDBTabsLink,
+  MDBTabsContent,
+  MDBTabsPane,
+  MDBContainer,
+  MDBCard,
+  MDBCardBody,
+} from 'mdb-react-ui-kit';
+import HourlyForecastChart from '@components/HourlyForecastChart';
+import { DashboardViewDetail } from './DashboardViewDetail';
 
 const tabs = [
   {
-    name: 'Forecast',
-    ref: 'forecast',
-    element: <HourlyForecastChart />,
-  },
-  {
     name: "Today's details",
     ref: 'today-details',
-    element: "Today's details",
+    element: <DashboardViewDetail />,
+  },
+  {
+    name: 'Forecast',
+    ref: 'forecast',
+    element: (
+      <MDBCard className='info-card'>
+        <MDBCardBody>
+          <HourlyForecastChart />
+        </MDBCardBody>
+      </MDBCard>
+    ),
   },
 ];
 
 const DashboardViewTabs = () => {
-  const [fillActive, setFillActive] = useState(tabs[0].ref);
+  const [fillActive, setFillActive] = useState(localStorage.getItem('focusedTab') || tabs[0].ref);
 
   const handleFillClick = (value: string) => {
     if (value === fillActive) {
@@ -24,6 +40,7 @@ const DashboardViewTabs = () => {
     }
 
     setFillActive(value);
+    localStorage.setItem('focusedTab', value);
   };
 
   return (
@@ -51,4 +68,4 @@ const DashboardViewTabs = () => {
   );
 };
 
-export default DashboardViewTabs;
+export { DashboardViewTabs };

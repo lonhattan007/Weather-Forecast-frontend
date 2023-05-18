@@ -5,7 +5,9 @@ const ErrorView = () => {
   const error: any = useRouteError();
 
   useEffect(() => {
-    console.log(error);
+    if (import.meta.env.DEV) {
+      console.log(error);
+    }
   }, [error]);
 
   return (

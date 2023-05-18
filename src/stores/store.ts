@@ -2,12 +2,18 @@ import { configureStore } from '@reduxjs/toolkit';
 import recentLocationsSlice from './recentLocationsSlice';
 import currentLocationSlice from './currentLocationSlice';
 import currentCoordsSlice from './currentCoordsSlice';
+import currentWeatherSlice from './currentWeatherSlice';
+import hourlyForecastSlice from './hourlyForecastSlice';
+import weeklyForecastSlice from './weeklyForecastSlice';
 
 const store = configureStore({
   reducer: {
     recentLocations: recentLocationsSlice,
     currentLocation: currentLocationSlice,
     currentCoords: currentCoordsSlice,
+    currentWeather: currentWeatherSlice,
+    hourlyForecast: hourlyForecastSlice,
+    weeklyForecast: weeklyForecastSlice,
   },
 });
 

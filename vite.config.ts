@@ -14,6 +14,7 @@ export default defineConfig({
       '@views': path.resolve('./src/views/'),
       '@hooks': path.resolve('./src/hooks/'),
       '@mocks': path.resolve('./mocks/'),
+      '@models': path.resolve('./src/models/'),
       '@styles': path.resolve('./src/scss'),
       '@stores': path.resolve('./src/stores'),
       '@routes': path.resolve('./src/routes'),

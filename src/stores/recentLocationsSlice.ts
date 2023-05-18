@@ -34,12 +34,16 @@ const recentLocationsSlice = createSlice({
       }
     },
     rearrangeLocation: (state, action) => {
+      // Get the location's index
       const elemIndex = state.value.indexOf(action.payload);
 
+      // Move it to the top of the array
       state.value = [state.value[elemIndex], ...state.value.slice(0, elemIndex), ...state.value.slice(elemIndex + 1)];
     },
   },
 });
+
+export { DEFAULT_LOCATIONS };
 
 export const { addLocation, rearrangeLocation } = recentLocationsSlice.actions;
 
