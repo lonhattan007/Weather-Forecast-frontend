@@ -9,7 +9,7 @@ import moment from 'moment';
 const ForecastTypes = {
   weekly: 'weekly',
   hourly: 'hourly',
-}
+};
 
 function useForecast(forecastType: string) {
   const location = useAppSelector((state) => state.currentLocation.value);
@@ -17,7 +17,7 @@ function useForecast(forecastType: string) {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    const params = { locationName: location, currentDateTime: moment().format("YYYY-MM-DDTHH:mm:ss") };
+    const params = { locationName: location, currentDateTime: moment().format('YYYY-MM-DDTHH:mm:ss') };
     axios
       .get(`/api/weather/forecast/${forecastType}`, { params })
       .then((res) => {

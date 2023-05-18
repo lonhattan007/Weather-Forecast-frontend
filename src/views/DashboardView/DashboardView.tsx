@@ -7,12 +7,10 @@ import { DashboardViewTabs } from './DashboardViewTabs';
 
 import { useEffect } from 'react';
 import { useCurrentCoordinates } from '@hooks/useCurrentCoordinates';
-import { useAppDispatch, useAppSelector } from '@hooks/customReduxHooks';
+import { useAppSelector } from '@hooks/customReduxHooks';
 
 import './DashboardView.scss';
 import { ForecastTypes, useForecast } from '@hooks/useForecast';
-import { updateHourlyForecast } from '@stores/hourlyForecastSlice';
-import { updateWeeklyForecast } from '@stores/weeklyForecastSlice';
 
 const DashboardView = () => {
   const currentCoords = useCurrentCoordinates();

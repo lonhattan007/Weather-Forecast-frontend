@@ -35,6 +35,8 @@ const CHART_OPTIONS = {
 
 const HourlyForecastChart = () => {
   const hourlyForecast = useAppSelector((state) => state.hourlyForecast.value);
+  const maxTemp = useAppSelector((state) => state.hourlyForecast.maxTemp);
+  const minTemp = useAppSelector((state) => state.hourlyForecast.minTemp);
 
   const temps = hourlyForecast.map((item) => item.tempC);
   const labels = hourlyForecast.map((item) => item.dateTime?.toString().substring(11, 16));
@@ -52,7 +54,20 @@ const HourlyForecastChart = () => {
     ],
   };
 
-  return <Line options={CHART_OPTIONS} data={data} />;
+  return (
+    <Line
+      options={{
+        ...CHART_OPTIONS,
+        scales: {
+          y: {
+            max: maxTemp + 5,
+            min: minTemp - 5,
+          },
+        },
+      }}
+      data={data}
+    />
+  );
 };
 
 export default HourlyForecastChart;

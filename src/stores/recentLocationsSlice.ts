@@ -32,6 +32,9 @@ const recentLocationsSlice = createSlice({
       if (elemIndex > 0) {
         state.value = [state.value[elemIndex], ...state.value.slice(0, elemIndex), ...state.value.slice(elemIndex + 1)];
       }
+
+      // Save the state to local storage
+      localStorage.setItem('recentLocations', state.value.toString());
     },
     rearrangeLocation: (state, action) => {
       // Get the location's index
@@ -39,6 +42,9 @@ const recentLocationsSlice = createSlice({
 
       // Move it to the top of the array
       state.value = [state.value[elemIndex], ...state.value.slice(0, elemIndex), ...state.value.slice(elemIndex + 1)];
+
+      // Save the state to local storage
+      localStorage.setItem('recentLocations', state.value.toString());
     },
   },
 });

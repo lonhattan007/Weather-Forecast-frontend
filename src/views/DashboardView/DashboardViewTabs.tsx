@@ -1,14 +1,5 @@
 import { useState } from 'react';
-import {
-  MDBTabs,
-  MDBTabsItem,
-  MDBTabsLink,
-  MDBTabsContent,
-  MDBTabsPane,
-  MDBContainer,
-  MDBCard,
-  MDBCardBody,
-} from 'mdb-react-ui-kit';
+import { MDBTabs, MDBTabsItem, MDBTabsLink, MDBTabsContent, MDBTabsPane, MDBCard, MDBCardBody } from 'mdb-react-ui-kit';
 import HourlyForecastChart from '@components/HourlyForecastChart';
 import { DashboardViewDetail } from './DashboardViewDetail';
 

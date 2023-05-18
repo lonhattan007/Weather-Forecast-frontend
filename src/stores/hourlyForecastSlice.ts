@@ -4,10 +4,14 @@ import type { WeatherForecast } from '@models/WeatherForecast';
 
 interface HourlyForecastState {
   value: WeatherForecast[];
+  maxTemp: number;
+  minTemp: number;
 }
 
 const initialState: HourlyForecastState = {
   value: [],
+  maxTemp: 45,
+  minTemp: 0,
 };
 
 const hourlyForecastSlice = createSlice({
@@ -16,6 +20,10 @@ const hourlyForecastSlice = createSlice({
   reducers: {
     updateHourlyForecast: (state, action) => {
       state.value = action.payload;
+      const temps = state.value.map((item) => item.tempC!);
+
+      state.maxTemp = Math.max(...temps);
+      state.minTemp = Math.min(...temps);
     },
   },
 });
@@ -23,5 +31,7 @@ const hourlyForecastSlice = createSlice({
 export const { updateHourlyForecast } = hourlyForecastSlice.actions;
 
 export const selectHourlyForecast = (state: RootState) => state.hourlyForecast.value;
+export const selectHourlyForecastMaxTemp = (state: RootState) => state.hourlyForecast.maxTemp;
+export const selectHourlyForecastMinTemp = (state: RootState) => state.hourlyForecast.minTemp;
 
 export default hourlyForecastSlice.reducer;
