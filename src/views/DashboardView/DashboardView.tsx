@@ -5,24 +5,20 @@ import DetailedWeatherCard from '@components/DetailedWeatherCard/DetailedWeather
 import SummarizedWeatherCard from '@components/SummarizedWeatherCard/SummarizedWeatherCard';
 import { DashboardViewTabs } from './DashboardViewTabs';
 
-import { useEffect } from 'react';
-import { useCurrentCoordinates } from '@hooks/useCurrentCoordinates';
+// import { useEffect } from 'react';
+// import { useCurrentCoordinates } from '@hooks/useCurrentCoordinates';
 import { useAppSelector } from '@hooks/customReduxHooks';
 
 import './DashboardView.scss';
 import { ForecastTypes, useForecast } from '@hooks/useForecast';
+// import { useGetWeatherByCoords } from '@hooks/useGetWeatherByCoords';
 
 const DashboardView = () => {
-  const currentCoords = useCurrentCoordinates();
+  // const currentCoords = useCurrentCoordinates();
   const recentLocations = useAppSelector((state) => state.recentLocations.value);
 
-  useEffect(() => {
-    console.log(currentCoords);
-  }, [currentCoords]);
-
-  useForecast(ForecastTypes.hourly);
-
   useForecast(ForecastTypes.weekly);
+  useForecast(ForecastTypes.hourly);
 
   return (
     <MDBContainer id='content-container'>
@@ -49,7 +45,7 @@ const DashboardView = () => {
         </MDBCol>
         <MDBCol className='detail-board p-0' lg='9' md='8'>
           <Greetings className='d-none d-md-flex align-items-start' />
-          <MDBRow className='m-3 p-3'>
+          <MDBRow className='mx-3'>
             <DashboardViewTabs />
           </MDBRow>
         </MDBCol>

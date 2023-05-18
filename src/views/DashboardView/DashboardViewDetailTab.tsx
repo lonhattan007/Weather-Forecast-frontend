@@ -1,9 +1,7 @@
 import { MDBCard, MDBCardBody, MDBCardTitle, MDBCol, MDBContainer, MDBIcon, MDBRow } from 'mdb-react-ui-kit';
 import { useAppSelector } from '@hooks/customReduxHooks';
 
-import './DashboardViewDetail.scss';
-
-const DashboardViewDetail = () => {
+const DashboardViewDetailTab = () => {
   const currentWeather = useAppSelector((state) => state.currentWeather.value);
 
   return (
@@ -51,4 +49,4 @@ const DashboardViewDetail = () => {
   );
 };
 
-export { DashboardViewDetail };
+export { DashboardViewDetailTab };

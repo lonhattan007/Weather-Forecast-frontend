@@ -18,7 +18,7 @@ const currentCoordsSlice = createSlice({
   initialState,
   reducers: {
     setCurrentCoords: (state, action) => {
-      state.value = action.payload.value;
+      state.value = action.payload;
     },
   },
 });

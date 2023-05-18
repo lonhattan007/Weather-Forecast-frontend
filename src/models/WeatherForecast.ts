@@ -2,7 +2,7 @@ interface WeatherForecast {
   _id?: string;
   location?: string;
   locationId?: string;
-  dateTime?: Date;
+  dateTime?: string;
   tempC?: number;
   isRaining?: boolean;
   chanceOfRain?: number;

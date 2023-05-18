@@ -9,10 +9,11 @@ import { updateLocation } from '@stores/currentLocationSlice';
 import { fixLocationName } from '@utils/fixLocationName';
 
 import './SummarizedWeatherCard.scss';
+import { Weather } from '@models/Weather';
 
 const SummarizedWeatherCard = (props: any) => {
   const dispatch = useAppDispatch();
-  const weather = useWeather(props.location);
+  const weather: Weather = useWeather(props.location);
 
   const handleClick = (e: any) => {
     e.preventDefault();

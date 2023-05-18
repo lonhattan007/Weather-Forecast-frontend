@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useAppSelector, useAppDispatch } from './customReduxHooks';
+import { useGetWeatherByCoords } from './useGetWeatherByCoords';
 import { setCurrentCoords } from '@stores/currentCoordsSlice';
 
 // The maximum age in milliseconds of a possible cached position that is acceptable to return
@@ -18,10 +19,7 @@ function useCurrentCoordinates() {
     const success = (position: any) => {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
-      const payload = {
-        value: { latitude, longitude },
-      };
-
+      const payload = { latitude, longitude };
       console.log('Geolocation detected');
       localStorage.setItem('currentCoordinates', `${latitude},${longitude}`);
       dispatch(setCurrentCoords(payload));
@@ -42,6 +40,8 @@ function useCurrentCoordinates() {
 
     navigator.geolocation.getCurrentPosition(success, error, options);
   }, []);
+
+  useGetWeatherByCoords();
 
   return currentCoords;
 }

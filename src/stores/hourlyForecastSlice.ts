@@ -20,6 +20,7 @@ const hourlyForecastSlice = createSlice({
   reducers: {
     updateHourlyForecast: (state, action) => {
       state.value = action.payload;
+      // Non-null assertion to get max and min temperature boundaries
       const temps = state.value.map((item) => item.tempC!);
 
       state.maxTemp = Math.max(...temps);

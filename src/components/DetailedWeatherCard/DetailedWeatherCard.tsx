@@ -9,11 +9,12 @@ import './DetailedWeatherCard.scss';
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '@hooks/customReduxHooks';
 import { updateCurrentWeather } from '@stores/currentWeatherSlice';
+import { Weather } from '@models/Weather';
 
 const DetailedWeatherCard = () => {
   const dispatch = useAppDispatch();
   const location = useAppSelector((state) => state.currentLocation.value);
-  const weather = useWeather(location);
+  const weather: Weather = useWeather(location);
 
   useEffect(() => {
     // Update the current weather in the store whenever the weather changes

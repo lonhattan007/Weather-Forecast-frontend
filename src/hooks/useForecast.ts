@@ -36,6 +36,8 @@ function useForecast(forecastType: string) {
       dispatch(updateWeeklyForecast(forecast));
     }
   }, [forecast]);
+
+  return forecast;
 }
 
 export { ForecastTypes, useForecast };
