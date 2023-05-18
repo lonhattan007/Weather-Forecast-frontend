@@ -25,11 +25,18 @@ const CHART_OPTIONS = {
       text: '24 Hours Forecasting',
     },
   },
+  scales: {
+    y: {
+      min: 10,
+      max: 35,
+    },
+  },
 };
 
 const HourlyForecastChart = () => {
   const hourlyForecast = useAppSelector((state) => state.hourlyForecast.value);
 
+  const temps = hourlyForecast.map((item) => item.tempC);
   const labels = hourlyForecast.map((item) => item.dateTime?.toString().substring(11, 16));
 
   const data = {
@@ -37,7 +44,7 @@ const HourlyForecastChart = () => {
     datasets: [
       {
         label: 'Temperature',
-        data: hourlyForecast.map((item) => item.tempC),
+        data: temps,
         borderColor: 'rgb(255, 99, 132)',
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
         tension: 0.3,
@@ -45,11 +52,7 @@ const HourlyForecastChart = () => {
     ],
   };
 
-  return (
-    <>
-      <Line options={CHART_OPTIONS} data={data} />
-    </>
-  );
+  return <Line options={CHART_OPTIONS} data={data} />;
 };
 
 export default HourlyForecastChart;
