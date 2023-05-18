@@ -25,7 +25,7 @@
   git checkout -b <branch-name>
   ```
 
-  - Branches' names should be in the form of `<prefix>/<functionality>`, for exambple `ft/login`. See more in the `Convention` section.
+  - Branches' names should be in the form of `<prefix>/<functionality>`, for example `ft/login`. See more in the `Convention` section.
 
 - Before committing, always reformat and check linting rules:
   
@@ -85,7 +85,7 @@ Weather-Forecast-frontend/
 |   |   
 |   |__ scss....................... - styling
 |   |   |__ styles.scss............ - global styling
-|   |   |__ theme.scss............. - themeing variables
+|   |   |__ theme.scss............. - theming variables
 |   |   
 |   |__ stores/.................... - state management store
 |   |   
@@ -105,7 +105,7 @@ Weather-Forecast-frontend/
 |   |   
 |__ mocks/......................... - mock data
 |__ |__ entityX/
-|__ |   |__ entityXdata.ts
+|__ |   |__ entityXData.ts
 |__ |__ ...
 |__ tests/......................... - testing setup
 |__ public/........................ - public assets
@@ -167,7 +167,7 @@ Weather-Forecast-frontend/
 
 - No hard coding
 
-- Avoid magic numbers, assign them to constatns or variables with commest instead
+- Avoid magic numbers, assign them to constants or variables with comments instead
 
 - No double negative conditions
 
@@ -175,7 +175,7 @@ Weather-Forecast-frontend/
 
 - TBA.
 
-### Tesing
+### Testing
 
 - Unit tests should be made for each components.
 

@@ -1,4 +1,6 @@
-@import '~bootstrap/scss/bootstrap';
+// @import '~bootstrap/scss/bootstrap';
+@import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+@import '@fortawesome/fontawesome-free/css/all.min.css';
 
 :root {
   font-family: Roboto, system-ui, Helvetica, Arial, sans-serif;
@@ -14,6 +16,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --mdb-primary: #97c4ff;
 }
 
 a {
@@ -32,6 +36,19 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+  max-width: 100% !important;
+
+  height: 100vh;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  text-align: center;
+  display: flex;
 }
 
 h1 {
@@ -73,4 +90,17 @@ button {
   button {
     background-color: #f9f9f9;
   }
+}
+
+$scrollbar-width: 4px;
+
+::-webkit-scrollbar {
+  width: $scrollbar-width;
+  background-color: #f5f5f5;
+  margin-right: 1px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #599eff;
+  border-radius: $scrollbar-width;
 }
