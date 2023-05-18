@@ -11,36 +11,43 @@ import {
 import { Line } from 'react-chartjs-2';
 
 import { useAppSelector } from '@hooks/customReduxHooks';
+import moment from 'moment';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-const HourlyForecastChart = () => {
+const WeeklyForecastChart = () => {
   const location = useAppSelector((state) => state.currentLocation.value);
 
-  const hourlyForecast = useAppSelector((state) => state.hourlyForecast.value);
-  const maxTemp = useAppSelector((state) => state.hourlyForecast.maxTemp);
-  const minTemp = useAppSelector((state) => state.hourlyForecast.minTemp);
+  const weeklyForecast = useAppSelector((state) => state.weeklyForecast.value);
 
-  const labels = hourlyForecast.map((item) => item.dateTime?.toString().substring(11, 16));
+  const labels = weeklyForecast.map((item, index) => moment(item.dateTime).add(index, 'd').format('DD/MM'));
 
   const data = {
     labels,
     datasets: [
       {
-        label: 'Temperature',
-        data: hourlyForecast.map((item) => item.tempC),
+        label: 'Maximum temperature',
+        data: weeklyForecast.map((item) => item.maxTempC),
         borderColor: 'rgb(255, 99, 132)',
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
         yAxisID: 'temperature',
         tension: 0.3,
       },
       {
-        label: 'IsRaining',
-        data: hourlyForecast.map((item) => (item.isRaining ? 1 : 0)),
+        label: 'Minimum temperature',
+        data: weeklyForecast.map((item) => item.minTempC),
+        borderColor: 'rgb(255, 196, 137)',
+        backgroundColor: 'rgba(255, 196, 137, 0.5)',
+        yAxisID: 'temperature',
+        tension: 0.3,
+      },
+      {
+        label: 'Chance of Rain',
+        data: weeklyForecast.map((item) => item.chanceOfRain),
         borderColor: 'rgb(53, 162, 235)',
         backgroundColor: 'rgba(53, 162, 235, 0.5)',
-        yAxisID: 'isRaining',
-        tension: 0,
+        yAxisID: 'chanceOfRain',
+        tension: 0.3,
       },
     ],
   };
@@ -56,7 +63,7 @@ const HourlyForecastChart = () => {
         plugins: {
           title: {
             display: true,
-            text: `${location}'s 24 Hours Forecasting`,
+            text: `${location}'s 7 Days Forecasting`,
           },
         },
         // stacked: false,
@@ -64,13 +71,13 @@ const HourlyForecastChart = () => {
           temperature: {
             stacked: false,
             type: 'linear',
-            max: maxTemp + 5,
-            min: minTemp - 5,
+            max: 45,
+            min: 0,
           },
-          isRaining: {
+          chanceOfRain: {
             stacked: true,
             type: 'linear',
-            max: 2,
+            max: 100,
             min: 0,
             grid: {
               drawOnChartArea: false,
@@ -83,4 +90,4 @@ const HourlyForecastChart = () => {
   );
 };
 
-export default HourlyForecastChart;
+export default WeeklyForecastChart;
