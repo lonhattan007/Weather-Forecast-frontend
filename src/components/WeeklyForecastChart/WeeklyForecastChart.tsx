@@ -19,6 +19,8 @@ const WeeklyForecastChart = () => {
   const location = useAppSelector((state) => state.currentLocation.value);
 
   const weeklyForecast = useAppSelector((state) => state.weeklyForecast.value);
+  const maxTemp = useAppSelector((state) => state.weeklyForecast.maxTemp);
+  const minTemp = useAppSelector((state) => state.weeklyForecast.minTemp);
 
   const labels = weeklyForecast.map((item, index) => moment(item.dateTime).add(index, 'd').format('DD/MM'));
 
@@ -71,8 +73,8 @@ const WeeklyForecastChart = () => {
           temperature: {
             stacked: false,
             type: 'linear',
-            max: 45,
-            min: 0,
+            max: maxTemp + 5,
+            min: minTemp - 5,
           },
           chanceOfRain: {
             stacked: true,

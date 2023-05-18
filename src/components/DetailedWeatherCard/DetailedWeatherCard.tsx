@@ -29,31 +29,40 @@ const DetailedWeatherCard = () => {
         {/* TODO: This is just a patch, removed when DB is more concise */}
         <span className=''>{' ' + fixLocationName(location)}</span>
       </MDBCardTitle>
-      <MDBCardBody className='d-flex flex-column'>
-        <MDBTypography tag='div' className='fw-bold display-md-3 display-4'>
-          {weather.tempC}&deg;C
-        </MDBTypography>
-        Real Feel {weather.feelsLikeC}&deg;C <br />
-        <MDBTypography tag='div' className='fw-bold'>
-          {weather.weatherStatus}
-        </MDBTypography>
-        <MDBTable borderless>
+      <MDBCardBody className='d-flex flex-column justify-content-evenly'>
+        <div>
+          <MDBTypography tag='div' className='fw-bold display-md-3 display-4'>
+            {weather.tempC}&deg;C
+          </MDBTypography>
+          <MDBTypography tag='div' className='fs-6'>
+            Real Feel {weather.feelsLikeC}&deg;C
+          </MDBTypography>
+          <MDBTypography tag='div' className='fw-bold'>
+            {weather.weatherStatus}
+          </MDBTypography>
+        </div>
+        <MDBTable>
           <MDBTableBody>
             <tr>
-              <th scope='row'>
+              <th scope='row' className='text-start'>
                 <MDBIcon icon='wind' size='sm' />
               </th>
-              <td>Wind</td>
-              <td className='px-2'>|</td>
-              <td className='text-start'>{`${weather.windSpeedKmph} Km/h`}</td>
+              <td className='text-start'>Wind speed</td>
+              <td className='text-end'>{`${weather.windSpeedKmph} Km/h`}</td>
             </tr>
             <tr>
-              <th scope='row'>
+              <th scope='row' className='text-start'>
                 <MDBIcon icon='tint' size='sm' />
               </th>
-              <td>Hum</td>
-              <td className='px-2'>|</td>
-              <td className='text-start'>{`${weather.humidity} %`}</td>
+              <td className='text-start'>Humidity</td>
+              <td className='text-end'>{`${weather.humidity} %`}</td>
+            </tr>
+            <tr>
+              <th scope='row' className='text-start'>
+                <MDBIcon icon='sort-amount-down' size='sm' />
+              </th>
+              <td className='text-start'>Air pressure</td>
+              <td className='text-end'>{`${weather.pressure} mbar`}</td>
             </tr>
           </MDBTableBody>
         </MDBTable>
