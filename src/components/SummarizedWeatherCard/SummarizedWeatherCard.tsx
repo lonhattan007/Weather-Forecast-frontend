@@ -28,16 +28,16 @@ const SummarizedWeatherCard = (props: any) => {
                     <MDBIcon icon='wind' size='sm' />
                   </th>
                   <td>Wind</td>
-                  <td>|</td>
-                  <td>{`${weather.windSpeedKmph} Km/h`}</td>
+                  <td className='px-2'>|</td>
+                  <td className='text-start'>{`${weather.windSpeedKmph} Km/h`}</td>
                 </tr>
                 <tr>
                   <th scope='row'>
                     <MDBIcon icon='tint' size='sm' />
                   </th>
                   <td>Hum</td>
-                  <td>|</td>
-                  <td>{`${weather.humidity} %`}</td>
+                  <td className='px-2'>|</td>
+                  <td className='text-start'>{`${weather.humidity} %`}</td>
                 </tr>
               </MDBTableBody>
             </MDBTable>
