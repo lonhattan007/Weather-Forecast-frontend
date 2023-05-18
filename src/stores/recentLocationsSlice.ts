@@ -33,10 +33,15 @@ const recentLocationsSlice = createSlice({
         state.value = [state.value[elemIndex], ...state.value.slice(0, elemIndex), ...state.value.slice(elemIndex + 1)];
       }
     },
+    rearrangeLocation: (state, action) => {
+      const elemIndex = state.value.indexOf(action.payload);
+
+      state.value = [state.value[elemIndex], ...state.value.slice(0, elemIndex), ...state.value.slice(elemIndex + 1)];
+    },
   },
 });
 
-export const { addLocation } = recentLocationsSlice.actions;
+export const { addLocation, rearrangeLocation } = recentLocationsSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectRecentLocations = (state: RootState) => state.recentLocations.value;

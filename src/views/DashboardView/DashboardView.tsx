@@ -10,10 +10,13 @@ import { useCurrentCoordinates } from '@hooks/useCurrentCoordinates';
 import { useAppSelector } from '@hooks/customReduxHooks';
 
 import './DashboardView.scss';
+import { useWeather } from '@hooks/useWeather';
 
 const DashboardView = () => {
   const currentCoords = useCurrentCoordinates();
   const recentLocations = useAppSelector((state) => state.recentLocations.value);
+  const currentLocation = useAppSelector((state) => state.currentLocation.value);
+  const currentWeather = useWeather(currentLocation);
 
   useEffect(() => {
     console.log(currentCoords);
@@ -33,10 +36,7 @@ const DashboardView = () => {
               <LocationSearchBar id='search-section' />
             </MDBRow>
             <MDBRow className='justify-content-center my-3'>
-              {/* TODO: This is not reactive */}
-              {recentLocations.slice(0, 1).map((location) => (
-                <DetailedWeatherCard location={location} />
-              ))}
+              <DetailedWeatherCard />
             </MDBRow>
             <MDBRow className='justify-content-start text-align-left my-3'>
               <h6 className='text'>

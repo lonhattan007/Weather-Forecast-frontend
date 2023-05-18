@@ -1,16 +1,28 @@
 import { MDBCard, MDBCardBody, MDBCardTitle, MDBIcon, MDBCol, MDBRow, MDBTable, MDBTableBody } from 'mdb-react-ui-kit';
 
 import { useWeather } from '@hooks/useWeather';
+import { useAppDispatch } from '@hooks/customReduxHooks';
+
+import { rearrangeLocation } from '@stores/recentLocationsSlice';
+import { updateLocation } from '@stores/currentLocationSlice';
 
 import { fixLocationName } from '@utils/fixLocationName';
 
 import './SummarizedWeatherCard.scss';
 
 const SummarizedWeatherCard = (props: any) => {
+  const dispatch = useAppDispatch();
   const weather = useWeather(props.location);
 
+  const handleClick = (e: any) => {
+    e.preventDefault();
+
+    dispatch(rearrangeLocation(props.location));
+    dispatch(updateLocation(props.location));
+  };
+
   return (
-    <MDBCard className='other-card'>
+    <MDBCard className='other-card' onClick={handleClick}>
       <MDBCardTitle className='mt-2 d-flex flex-row-reverse'>
         <span>
           <MDBIcon icon='map-marker-alt' size='xs' />
@@ -41,17 +53,9 @@ const SummarizedWeatherCard = (props: any) => {
                 </tr>
               </MDBTableBody>
             </MDBTable>
-            {/* <span>
-              <MDBIcon icon='wind' size='sm' />
-              {` Wind | ${weather.windSpeedKmph} Km/h`}
-            </span>
-            <span>
-              <MDBIcon icon='tint' size='sm' />
-              {` Hum | ${weather.humidity} %`}
-            </span> */}
           </MDBCol>
           <MDBCol className='p-0 d-flex flex-column-reverse align-items-end'>
-            <span className='font-weight-bold'>{weather.tempC} &deg;C</span>
+            <span className='fw-bold fs-5'>{weather.tempC}&deg;C</span>
           </MDBCol>
         </MDBRow>
       </MDBCardBody>

@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import recentLocationsSlice from './recentLocationsSlice';
+import currentLocationSlice from './currentLocationSlice';
 import currentCoordsSlice from './currentCoordsSlice';
 
 const store = configureStore({
   reducer: {
     recentLocations: recentLocationsSlice,
+    currentLocation: currentLocationSlice,
     currentCoords: currentCoordsSlice,
   },
 });

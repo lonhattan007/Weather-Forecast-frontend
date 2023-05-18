@@ -13,6 +13,11 @@ table {
 .other-card {
   width: 80%;
   background-image: linear-gradient(#ffc489, #ff9b37);
-  margin-bottom: 10px;
+  opacity: 0.8;
   color: #ffffff;
+  margin-bottom: 10px;
+
+  &:hover {
+    opacity: 1;
+  }
 }

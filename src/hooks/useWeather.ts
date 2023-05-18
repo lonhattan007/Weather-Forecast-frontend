@@ -11,7 +11,9 @@ function useWeather(
   const endDateTime = '2023-05-18T01:00:00';
 
   const [weather, setWeather] = useState({
+    weatherStatus: '',
     tempC: 0,
+    feelsLikeC: 0,
     humidity: 0,
     windSpeedKmph: 0,
   });
@@ -28,14 +30,14 @@ function useWeather(
     axios
       .get('/weathers/location-name', { params: params })
       .then((res) => {
-        const summaries = JSON.parse(res.request.response);
-        setWeather({ ...summaries[0] });
+        const weatherReports = JSON.parse(res.request.response);
+        setWeather({ ...weatherReports[0] });
         // console.log(summarizedWeather)
       })
       .catch((err) => {
         console.error(err.message);
       });
-  }, []);
+  }, [location]);
 
   return weather;
 }
