@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { RootState } from '@stores/store';
 
-const DEFAULT_LOCATIONS = ['Ha Noi', 'Ho Chi Minh', 'Da Nang'];
+const DEFAULT_LOCATIONS = ['Ho Chi Minh', 'Ha Noi', 'Da Nang'];
 
 // Define a type for the slice state
 interface RecentLocationsState {

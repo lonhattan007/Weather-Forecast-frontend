@@ -12,10 +12,15 @@ import { useAppSelector } from '@hooks/customReduxHooks';
 import './DashboardView.scss';
 import { ForecastTypes, useForecast } from '@hooks/useForecast';
 // import { useGetWeatherByCoords } from '@hooks/useGetWeatherByCoords';
+// import { useGetWeatherByCoords } from '@hooks/useGetWeatherByCoords';
 
 const DashboardView = () => {
   // const currentCoords = useCurrentCoordinates();
   const recentLocations = useAppSelector((state) => state.recentLocations.value);
+
+  // if (currentCoords) {
+  //   useGetWeatherByCoords()
+  // }
 
   useForecast(ForecastTypes.weekly);
   useForecast(ForecastTypes.hourly);
